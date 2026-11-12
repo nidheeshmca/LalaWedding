@@ -350,14 +350,13 @@
     }
 
     .welcome-continue {
-      position: absolute;
+      position: relative;
       z-index: 1;
-      bottom: max(1rem, env(safe-area-inset-bottom));
-      left: 50%;
       display: inline-flex;
       min-height: 2.75rem;
       align-items: center;
       gap: .55rem;
+      margin-top: 1rem;
       border: 1px solid rgba(154, 91, 66, .38);
       border-radius: 99rem;
       padding: .6rem 1rem;
@@ -366,7 +365,6 @@
       font: 600 .68rem var(--sans);
       letter-spacing: .08em;
       text-transform: uppercase;
-      transform: translateX(-50%);
       cursor: pointer;
     }
 
@@ -949,10 +947,35 @@
       }
     }
 
-    @media (max-height: 720px) {
+    @media (max-width: 699px) and (max-height: 950px) {
+      .envelope-screen {
+        padding-top: max(1.5rem, env(safe-area-inset-top));
+        padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+      }
+
       .couple-watermark,
       .envelope {
-        width: min(86vw, 22rem, 31vh);
+        width: min(86vw, 22rem, 31svh);
+      }
+
+      .welcome-kicker {
+        margin-bottom: 1.25rem;
+      }
+
+      .welcome-title {
+        margin-top: 1.4rem;
+      }
+    }
+
+    @media (max-width: 699px) and (max-height: 600px) {
+      .envelope-screen {
+        padding-top: max(1rem, env(safe-area-inset-top));
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+      }
+
+      .couple-watermark,
+      .envelope {
+        width: min(86vw, 22rem, 29svh);
       }
     }
 
@@ -1016,9 +1039,9 @@
         <h1 class="welcome-title">A celebration of love</h1>
         <p class="welcome-announcement"><strong>Kalpana and Rajat are getting married</strong></p>
       </div>
-      <button class="welcome-continue" id="continue-invitation" type="button" aria-label="Open envelope and continue to the first invitation">
-        Begin invitation <span aria-hidden="true">↓</span>
-      </button>
+        <button class="welcome-continue" id="continue-invitation" type="button" aria-label="Open envelope and continue to the first invitation">
+          Begin invitation <span aria-hidden="true">↓</span>
+        </button>
     </section>
 
     <button class="music-toggle" id="music-toggle" type="button" aria-label="Toggle background music" aria-pressed="false">
